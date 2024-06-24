@@ -24,6 +24,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '19.x'
+          registry-url: https://npm.pkg.github.com/
+          cache: 'pnpm'
 
       # Runs a single command using the runners shell
       - name: Install
